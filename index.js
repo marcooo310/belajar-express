@@ -2,19 +2,60 @@ const express = require("express")
 const app = express() //inisialisasi express
 const port = 3000 // port
 
+app.set('view engine', 'ejs');
+
 // route /
 app.get("/", (req, res) => {
-    res.send("Hello");
+    //res.send("Hello");
+
+    const berita = [
+        {
+            judul: "Berita 1",
+            isi: "Isi Berita"
+        },
+        {
+            judul: "Berita 2",
+            isi: "isi berita 2"
+        }
+    ];
+    res.render('index', {title:
+    'Halaman Home', berita});
+
 });
 
 // route /about
 app.get("/about", (req, res) => {
-    res.send("About Us");
+    // res.send("About Us");
+    res.render('about', {title: 'Halaman Home'});
 });
 
 // route /contact
 app.get("/contact", (req, res) => {
-    res.sendFile(__dirname + "/contact.html");
+    // res.sendFile(__dirname + "/contact.html");
+    res.render('contact', {title: 'Halaman Home'});
+});
+
+// route /prodi
+app.get("/prodi", (req, res) => {
+    // res.send("prodi");
+    const prodi = [
+        {
+            Prodi: "Sistem Informasi",
+            Singkatan: "SI",
+            Fakultas: "FIKR"
+        },
+        {
+            Prodi: "informatika",
+            Singkatan: "IF",
+            Fakultas: "FIKR"
+        },
+        {
+            Prodi: "Teknik Elektro",
+            Singkatan: "TE",
+            Fakultas: "FIKR"
+        }
+    ];
+    res.render('prodi', {title: 'Program Studi', prodi});
 });
 
 //route /mahasiswa 
