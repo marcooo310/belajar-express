@@ -7,30 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="prodi">Prodi</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
+    <!-- Menampilkan gambar index.jpeg di bagian paling atas -->
+    <div class="text-center">
+        <img src="./img/index.jpeg" alt="" style="width: 70%;">
+    </div>
+
     <h1>Home</h1>
     <p>Ini Halaman Home</p>
 
@@ -39,5 +21,6 @@
         <h2><%= berita.judul %></h2>
         <p><%= berita.isi %></p>
     <% }) %>
+
 </body>
 </html>

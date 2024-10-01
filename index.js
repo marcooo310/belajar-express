@@ -1,8 +1,13 @@
 const express = require("express")
 const app = express() //inisialisasi express
+const expressLayout = require("express-ejs-layouts"); //impor modul express-ejs-layouts
 const port = 3000 // port
 
+app.set("views", __dirname + "/views");
 app.set('view engine', 'ejs');
+
+app.use(expressLayout);
+app.use(express.static("public"));
 
 // route /
 app.get("/", (req, res) => {
@@ -19,20 +24,20 @@ app.get("/", (req, res) => {
         }
     ];
     res.render('index', {title:
-    'Halaman Home', berita});
+    'Halaman Home', berita, layout : "main"});
 
 });
 
 // route /about
 app.get("/about", (req, res) => {
     // res.send("About Us");
-    res.render('about', {title: 'Halaman Home'});
+    res.render('about', {title: 'About Us', layout : "main"});
 });
 
 // route /contact
 app.get("/contact", (req, res) => {
     // res.sendFile(__dirname + "/contact.html");
-    res.render('contact', {title: 'Halaman Home'});
+    res.render('contact', {title: 'Contact Us', layout : "main"});
 });
 
 // route /prodi
@@ -53,9 +58,25 @@ app.get("/prodi", (req, res) => {
             Prodi: "Teknik Elektro",
             Singkatan: "TE",
             Fakultas: "FIKR"
+        },
+        {
+            Prodi: "Manajemen Informatika",
+            Singkatan: "MI",
+            Fakultas: "FIKR"
+        },
+        {
+            Prodi: "Manajemen",
+            Singkatan: "MJ",
+            Fakultas: "FEB"
+        },
+        {
+            Prodi: "Akuntansi",
+            Singkatan: "AK",
+            Fakultas: "FEB"
         }
+        
     ];
-    res.render('prodi', {title: 'Program Studi', prodi});
+    res.render('prodi', {title: 'Program Studi', prodi, layout : "main"});
 });
 
 //route /mahasiswa 
