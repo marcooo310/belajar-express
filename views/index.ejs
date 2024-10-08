@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <h1 class="text-center">Home</h1>
+  <p class="text-center">Ini halaman Home</p>
+
+  <img src="./img/prodi.jpg" alt="About Us" class="img-fluid rounded" />
+  <h2 class="mt-4">Berita Terkini</h2>
+
+  <div class="row">
+    <% berita.forEach(data => { %>
+    <div class="col-sm-5">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title"><%= data.judul %></h5>
+          <p class="card-text"><%= data.isi %></p>
+          <a href="#" class="btn btn-primary">Buka Berita</a>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
